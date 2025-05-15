@@ -185,6 +185,34 @@
       background-color: #90caf9;
       color: #1a237e;
     }
+
+    .fireworks-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+#fireworks-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 998;
+}
+
   </style>
 </head>
 <body>
@@ -216,6 +244,8 @@
   </div>
 
   <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌓</button>
+<button class="fireworks-toggle" onclick="startFireworks()">🎆</button>
+<canvas id="fireworks-canvas"></canvas>
 
   <script>
     function toggleDarkMode() {
@@ -228,5 +258,65 @@
       document.body.classList.add('dark-mode');
     }
   </script>
+  <script>
+  const canvas = document.getElementById('fireworks-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let particles = [];
+
+  function createFirework(x, y) {
+    for (let i = 0; i < 100; i++) {
+      particles.push({
+        x, y,
+        angle: Math.random() * 2 * Math.PI,
+        speed: Math.random() * 4 + 2,
+        radius: Math.random() * 2 + 1,
+        life: 100,
+        color: `hsl(${Math.floor(Math.random() * 360)}, 100%, 60%)`
+      });
+    }
+  }
+
+function updateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particles.forEach((p) => {
+    p.x += Math.cos(p.angle) * p.speed;
+    p.y += Math.sin(p.angle) * p.speed + 0.5;
+    p.life -= 1;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
+    ctx.fillStyle = p.color;
+    ctx.fill();
+  });
+  particles = particles.filter(p => p.life > 0);
+
+  if (particles.length > 0) {
+    requestAnimationFrame(updateParticles);
+  } else {
+    animationRunning = false;
+  }
+}
+
+  let animationRunning = false;
+
+  function startFireworks() {
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * canvas.height * 0.5;
+    createFirework(x, y);
+    if (!animationRunning) {
+      animationRunning = true;
+      updateParticles();
+    }
+  }
+
+  // Ajuste de tamaño en redimensionar
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
+
 </body>
 </html>
