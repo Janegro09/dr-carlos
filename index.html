@@ -27,7 +27,7 @@
     .header-banner {
       background: linear-gradient(90deg, #1565c0, #1976d2, #1e88e5);
       color: white;
-      padding: 30px;
+      padding: 30px 20px;
       text-align: center;
       border-bottom: 8px solid #90caf9;
       position: relative;
@@ -35,7 +35,7 @@
 
     .header-banner::after {
       content: "⭐️ ⭐️ ⭐️";
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       position: absolute;
       bottom: -20px;
       left: 50%;
@@ -47,15 +47,19 @@
     }
 
     h1 {
-      font-size: 3.5rem;
+      font-size: 2.5rem;
       font-weight: bold;
       margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
     }
 
     .intro {
       background-color: white;
       border-radius: 25px;
-      padding: 40px;
+      padding: 30px 20px;
       margin-top: 60px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
       animation: fadeInUp 1.2s ease;
@@ -65,15 +69,21 @@
       max-width: 100%;
       border-radius: 20px;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .doctor-photo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
     }
 
     .bottom-text {
       background-color: #ffffff;
       border-radius: 25px;
-      padding: 35px;
+      padding: 30px 20px;
       margin-top: 40px;
       text-align: center;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       color: #37474f;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
       animation: fadeIn 1.5s ease;
@@ -92,9 +102,9 @@
     .btn-honor {
       background-color: #1a237e;
       color: white;
-      font-size: 1.1rem;
+      font-size: 1rem;
       border-radius: 12px;
-      padding: 12px 30px;
+      padding: 10px 24px;
       margin-top: 20px;
       transition: all 0.3s ease-in-out;
       border: none;
@@ -106,19 +116,22 @@
 
     .signature {
       margin-top: 30px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-style: italic;
       color: #5c6bc0;
     }
-    .doctor-photo {
-        max-width: 100%;
-        border-radius: 20px;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-    .doctor-photo:hover {
-        transform: scale(1.05);
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+
+    @media (max-width: 576px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      .btn-honor {
+        font-size: 0.95rem;
+        padding: 10px 20px;
+      }
     }
   </style>
 </head>
@@ -131,14 +144,14 @@
 
   <div class="container">
     <div class="row intro align-items-center">
-      <div class="col-md-7 mb-4 mb-md-0">
+      <div class="col-md-7 order-2 order-md-1 text-center text-md-start">
         <h2 class="mb-3">Médico egresado de la Universidad de Buenos Aires</h2>
         <p class="mb-4">
           Con esfuerzo, dedicación y una enorme pasión por sanar, Carlos ha logrado un sueño que hoy celebramos con orgullo y emoción.
         </p>
         <button class="btn btn-honor">¡Te aplaudimos, doctor!</button>
       </div>
-      <div class="col-md-5 text-center">
+      <div class="col-md-5 order-1 order-md-2 text-center mb-4 mb-md-0">
         <img src="./img/carlitos.png" alt="Foto del Doctor" class="doctor-photo">
       </div>
     </div>
@@ -151,5 +164,6 @@
     </div>
   </div>
 
+  <footer> &nbsp;</footer> 
 </body>
 </html>
