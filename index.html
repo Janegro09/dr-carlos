@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>¡Felicitaciones Dr. Carlos Toloza!</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Fuente Laffayette (local) -->
+  <style>
+    @font-face {
+      font-family: 'Laffayette';
+      src: url('/fonts/Laffayette.ttf') format('truetype');
+    }
+
+    body {
+      font-family: 'Laffayette', Arial, sans-serif;
+      background: linear-gradient(180deg, #e3f2fd 0%, #ffffff 100%);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      color: #1a237e;
+    }
+
+    .header-banner {
+      background: linear-gradient(90deg, #1565c0, #1976d2, #1e88e5);
+      color: white;
+      padding: 30px;
+      text-align: center;
+      border-bottom: 8px solid #90caf9;
+      position: relative;
+    }
+
+    .header-banner::after {
+      content: "⭐️ ⭐️ ⭐️";
+      font-size: 1.5rem;
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 5px 20px;
+      border-radius: 30px;
+      color: #1565c0;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .intro {
+      background-color: white;
+      border-radius: 25px;
+      padding: 40px;
+      margin-top: 60px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .doctor-photo {
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    .bottom-text {
+      background-color: #ffffff;
+      border-radius: 25px;
+      padding: 35px;
+      margin-top: 40px;
+      text-align: center;
+      font-size: 1.4rem;
+      color: #37474f;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      animation: fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .btn-honor {
+      background-color: #1a237e;
+      color: white;
+      font-size: 1.1rem;
+      border-radius: 12px;
+      padding: 12px 30px;
+      margin-top: 20px;
+      transition: all 0.3s ease-in-out;
+      border: none;
+    }
+
+    .btn-honor:hover {
+      background-color: #3949ab;
+    }
+
+    .signature {
+      margin-top: 30px;
+      font-size: 1rem;
+      font-style: italic;
+      color: #5c6bc0;
+    }
+    .doctor-photo {
+        max-width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .doctor-photo:hover {
+        transform: scale(1.05);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header-banner">
+    <h1>¡Felicitaciones Dr. Carlos Toloza!</h1>
+    <p>Un nuevo capítulo comienza 🌟</p>
+  </div>
+
+  <div class="container">
+    <div class="row intro align-items-center">
+      <div class="col-md-7 mb-4 mb-md-0">
+        <h2 class="mb-3">Médico egresado de la Universidad de Buenos Aires</h2>
+        <p class="mb-4">
+          Con esfuerzo, dedicación y una enorme pasión por sanar, Carlos ha logrado un sueño que hoy celebramos con orgullo y emoción.
+        </p>
+        <button class="btn btn-honor">¡Te aplaudimos, doctor!</button>
+      </div>
+      <div class="col-md-5 text-center">
+        <img src="/img/carlitos.png" alt="Foto del Doctor" class="doctor-photo">
+      </div>
+    </div>
+
+    <div class="bottom-text mt-5">
+      <p>
+        Carlos querido: tus papás, tus hermanos, tus abuelos, tus tíos, tus primos y tus amigos te deseamos con el corazón lleno de alegría las mayores felicidades por este gran logro. Te admiramos profundamente y te acompañamos en todo lo que viene.
+      </p>
+      <div class="signature">Con todo nuestro cariño 💙</div>
+    </div>
+  </div>
+
+</body>
+</html>
