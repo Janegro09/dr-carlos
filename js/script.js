@@ -1,4 +1,3 @@
-
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     localStorage.setItem('darkMode', document.body.classList.contains('dark-mode') ? 'on' : 'off');
@@ -8,6 +7,7 @@ function toggleDarkMode() {
 if (localStorage.getItem('darkMode') === 'on') {
     document.body.classList.add('dark-mode');
 }
+
 const canvas = document.getElementById('fireworks-canvas');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -30,34 +30,29 @@ function createFirework(x, y) {
 
 function updateParticles() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     particles.forEach((p) => {
         p.x += Math.cos(p.angle) * p.speed;
-        p.y += Math.sin(p.angle) * p.speed + 0.5;
+        p.y += Math.sin(p.angle) * p.speed + 0.5; // gravedad
         p.life -= 1;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
         ctx.fillStyle = p.color;
         ctx.fill();
     });
+
     particles = particles.filter(p => p.life > 0);
 
-    if (particles.length > 0) {
-        requestAnimationFrame(updateParticles);
-    } else {
-        animationRunning = false;
-    }
+    requestAnimationFrame(updateParticles); // seguir siempre, haya o no partículas
 }
 
-let animationRunning = false;
+// Iniciar animación al cargar
+updateParticles();
 
 function startFireworks() {
     const x = Math.random() * canvas.width;
     const y = Math.random() * canvas.height * 0.5;
     createFirework(x, y);
-    if (!animationRunning) {
-        animationRunning = true;
-        updateParticles();
-    }
 }
 
 // Ajuste de tamaño en redimensionar
